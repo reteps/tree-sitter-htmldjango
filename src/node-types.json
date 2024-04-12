@@ -294,6 +294,25 @@
     }
   },
   {
+    "type": "text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable",
     "named": true,
     "fields": {},
@@ -639,10 +658,6 @@
   {
     "type": "templatetag",
     "named": false
-  },
-  {
-    "type": "text",
-    "named": true
   },
   {
     "type": "time",

@@ -4,7 +4,10 @@
 (attribute_name) @attribute
 (attribute_value) @string
 (comment) @comment
-
+(directive) @operator
+(keyword) @keyword
+(variable) @operator
+(identifier) @string
 [
   "<"
   ">"

@@ -7,4 +7,4 @@ description = "support for django templating in html"
 repository = "https://github.com/mja129/tree-sitter-html-django"
 [grammars.html]
 repository = "https://github.com/mja129/tree-sitter-html-django"
-commit = ""
+commit = "33f281df7ec59b04d1434d58683e4110ee35f197"

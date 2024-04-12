@@ -458,8 +458,29 @@
       ]
     },
     "text": {
-      "type": "PATTERN",
-      "value": "[^<>{}%&\\s]([^<>{}%&]*[^<>{}%&\\s])?"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SYMBOL",
+            "name": "directive"
+          }
+        },
+        {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^<>{}%&\\s]([^<>{}%&]*[^<>{}%&\\s])?"
+        }
+      ]
     },
     "directive": {
       "type": "SEQ",

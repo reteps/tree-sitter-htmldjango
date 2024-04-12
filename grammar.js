@@ -146,7 +146,11 @@ module.exports = grammar({
       seq('"', optional(alias(/[^"]+/, $.attribute_value)), '"'),
     ),
 
-    text: _ => /[^<>{}%&\s]([^<>{}%&]*[^<>{}%&\s])?/,
+    text: $ => choice(
+      prec(1, $.directive),
+      prec(1, $.variable),
+      /[^<>{}%&\s]([^<>{}%&]*[^<>{}%&\s])?/,
+    ),
 
     directive: $ => seq(
       '{%',
