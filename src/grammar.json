@@ -4,9 +4,26 @@
     "document": {
       "type": "REPEAT",
       "content": {
-        "type": "SYMBOL",
-        "name": "_node"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "directive"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "html"
+          }
+        ]
       }
+    },
+    "html": {
+      "type": "SYMBOL",
+      "name": "_node"
     },
     "doctype": {
       "type": "SEQ",
@@ -442,7 +459,416 @@
     },
     "text": {
       "type": "PATTERN",
-      "value": "[^<>&\\s]([^<>&]*[^<>&\\s])?"
+      "value": "[^<>{}%&\\s]([^<>{}%&]*[^<>{}%&\\s])?"
+    },
+    "directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{%"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "keyword"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "%}"
+        }
+      ]
+    },
+    "variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "}}"
+        }
+      ]
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword_list"
+        },
+        {
+          "type": "STRING",
+          "value": "end[object Object]"
+        }
+      ]
+    },
+    "_keyword_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "autoescape"
+        },
+        {
+          "type": "STRING",
+          "value": "block"
+        },
+        {
+          "type": "STRING",
+          "value": "comment"
+        },
+        {
+          "type": "STRING",
+          "value": "csrf-token"
+        },
+        {
+          "type": "STRING",
+          "value": "cycle"
+        },
+        {
+          "type": "STRING",
+          "value": "debug"
+        },
+        {
+          "type": "STRING",
+          "value": "extends"
+        },
+        {
+          "type": "STRING",
+          "value": "filter"
+        },
+        {
+          "type": "STRING",
+          "value": "firstof"
+        },
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "STRING",
+          "value": "empty"
+        },
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "STRING",
+          "value": "ifchanged"
+        },
+        {
+          "type": "STRING",
+          "value": "include"
+        },
+        {
+          "type": "STRING",
+          "value": "load"
+        },
+        {
+          "type": "STRING",
+          "value": "lorem"
+        },
+        {
+          "type": "STRING",
+          "value": "now"
+        },
+        {
+          "type": "STRING",
+          "value": "regroup"
+        },
+        {
+          "type": "STRING",
+          "value": "resetcycle"
+        },
+        {
+          "type": "STRING",
+          "value": "spaceless"
+        },
+        {
+          "type": "STRING",
+          "value": "templatetag"
+        },
+        {
+          "type": "STRING",
+          "value": "url"
+        },
+        {
+          "type": "STRING",
+          "value": "verbatim"
+        },
+        {
+          "type": "STRING",
+          "value": "widthratio"
+        },
+        {
+          "type": "STRING",
+          "value": "with"
+        }
+      ]
+    },
+    "_filter_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "add"
+        },
+        {
+          "type": "STRING",
+          "value": "addslashes"
+        },
+        {
+          "type": "STRING",
+          "value": "capfirst"
+        },
+        {
+          "type": "STRING",
+          "value": "center"
+        },
+        {
+          "type": "STRING",
+          "value": "cut"
+        },
+        {
+          "type": "STRING",
+          "value": "date"
+        },
+        {
+          "type": "STRING",
+          "value": "default"
+        },
+        {
+          "type": "STRING",
+          "value": "default_if_none"
+        },
+        {
+          "type": "STRING",
+          "value": "dictsort"
+        },
+        {
+          "type": "STRING",
+          "value": "dictsortreversed"
+        },
+        {
+          "type": "STRING",
+          "value": "divisibleby"
+        },
+        {
+          "type": "STRING",
+          "value": "escape"
+        },
+        {
+          "type": "STRING",
+          "value": "escapejs"
+        },
+        {
+          "type": "STRING",
+          "value": "escapeseq"
+        },
+        {
+          "type": "STRING",
+          "value": "filesizeformat"
+        },
+        {
+          "type": "STRING",
+          "value": "first"
+        },
+        {
+          "type": "STRING",
+          "value": "floatformat"
+        },
+        {
+          "type": "STRING",
+          "value": "force-escape"
+        },
+        {
+          "type": "STRING",
+          "value": "get-digit"
+        },
+        {
+          "type": "STRING",
+          "value": "iriencode"
+        },
+        {
+          "type": "STRING",
+          "value": "join"
+        },
+        {
+          "type": "STRING",
+          "value": "json-script"
+        },
+        {
+          "type": "STRING",
+          "value": "last"
+        },
+        {
+          "type": "STRING",
+          "value": "length"
+        },
+        {
+          "type": "STRING",
+          "value": "length-is"
+        },
+        {
+          "type": "STRING",
+          "value": "linebreaks"
+        },
+        {
+          "type": "STRING",
+          "value": "linebreaksbr"
+        },
+        {
+          "type": "STRING",
+          "value": "linenumbers"
+        },
+        {
+          "type": "STRING",
+          "value": "ljust"
+        },
+        {
+          "type": "STRING",
+          "value": "lower"
+        },
+        {
+          "type": "STRING",
+          "value": "make-list"
+        },
+        {
+          "type": "STRING",
+          "value": "phone2numeric"
+        },
+        {
+          "type": "STRING",
+          "value": "pluralize"
+        },
+        {
+          "type": "STRING",
+          "value": "pprint"
+        },
+        {
+          "type": "STRING",
+          "value": "random"
+        },
+        {
+          "type": "STRING",
+          "value": "rjust"
+        },
+        {
+          "type": "STRING",
+          "value": "safe"
+        },
+        {
+          "type": "STRING",
+          "value": "safeseq"
+        },
+        {
+          "type": "STRING",
+          "value": "slice"
+        },
+        {
+          "type": "STRING",
+          "value": "slugify"
+        },
+        {
+          "type": "STRING",
+          "value": "stringformat"
+        },
+        {
+          "type": "STRING",
+          "value": "striptags"
+        },
+        {
+          "type": "STRING",
+          "value": "time"
+        },
+        {
+          "type": "STRING",
+          "value": "timesince"
+        },
+        {
+          "type": "STRING",
+          "value": "timeuntil"
+        },
+        {
+          "type": "STRING",
+          "value": "title"
+        },
+        {
+          "type": "STRING",
+          "value": "truncatechars"
+        },
+        {
+          "type": "STRING",
+          "value": "truncatechars-html"
+        },
+        {
+          "type": "STRING",
+          "value": "truncatewords"
+        },
+        {
+          "type": "STRING",
+          "value": "truncatewords-html"
+        },
+        {
+          "type": "STRING",
+          "value": "unordered-list"
+        },
+        {
+          "type": "STRING",
+          "value": "upper"
+        },
+        {
+          "type": "STRING",
+          "value": "urlencode"
+        },
+        {
+          "type": "STRING",
+          "value": "urlize"
+        },
+        {
+          "type": "STRING",
+          "value": "urlizetrunc"
+        },
+        {
+          "type": "STRING",
+          "value": "wordcount"
+        },
+        {
+          "type": "STRING",
+          "value": "wordwrap"
+        },
+        {
+          "type": "STRING",
+          "value": "yesno"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-z]+"
     }
   },
   "extras": [
@@ -498,3 +924,4 @@
   "inline": [],
   "supertypes": []
 }
+

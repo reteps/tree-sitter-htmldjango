@@ -1,0 +1,10 @@
+id = "htmldjango"
+name = "html with django"
+version = "1.0.0"
+schema_version = 1
+authors = ["mostly not me"]
+description = "support for django templating in html"
+repository = "https://github.com/mja129/tree-sitter-html-django"
+[grammars.html]
+repository = "https://github.com/mja129/tree-sitter-html-django"
+commit = ""

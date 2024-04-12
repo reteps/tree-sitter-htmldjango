@@ -23,6 +23,25 @@
     }
   },
   {
+    "type": "directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "doctype",
     "named": true,
     "fields": {}
@@ -36,31 +55,15 @@
       "required": false,
       "types": [
         {
-          "type": "doctype",
+          "type": "directive",
           "named": true
         },
         {
-          "type": "element",
+          "type": "html",
           "named": true
         },
         {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
-          "named": true
-        },
-        {
-          "type": "script_element",
-          "named": true
-        },
-        {
-          "type": "style_element",
-          "named": true
-        },
-        {
-          "type": "text",
+          "type": "variable",
           "named": true
         }
       ]
@@ -146,6 +149,50 @@
         }
       ]
     }
+  },
+  {
+    "type": "html",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "quoted_attribute_value",
@@ -247,7 +294,26 @@
     }
   },
   {
+    "type": "variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "%}",
     "named": false
   },
   {
@@ -279,6 +345,14 @@
     "named": false
   },
   {
+    "type": "add",
+    "named": false
+  },
+  {
+    "type": "addslashes",
+    "named": false
+  },
+  {
     "type": "attribute_name",
     "named": true
   },
@@ -287,11 +361,79 @@
     "named": true
   },
   {
+    "type": "autoescape",
+    "named": false
+  },
+  {
+    "type": "block",
+    "named": false
+  },
+  {
+    "type": "capfirst",
+    "named": false
+  },
+  {
+    "type": "center",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
+    "type": "comment",
+    "named": false
+  },
+  {
+    "type": "csrf-token",
+    "named": false
+  },
+  {
+    "type": "cut",
+    "named": false
+  },
+  {
+    "type": "cycle",
+    "named": false
+  },
+  {
+    "type": "date",
+    "named": false
+  },
+  {
+    "type": "debug",
+    "named": false
+  },
+  {
+    "type": "default",
+    "named": false
+  },
+  {
+    "type": "default_if_none",
+    "named": false
+  },
+  {
+    "type": "dictsort",
+    "named": false
+  },
+  {
+    "type": "dictsortreversed",
+    "named": false
+  },
+  {
+    "type": "divisibleby",
+    "named": false
+  },
+  {
     "type": "doctype",
+    "named": false
+  },
+  {
+    "type": "empty",
+    "named": false
+  },
+  {
+    "type": "end[object Object]",
     "named": false
   },
   {
@@ -303,15 +445,295 @@
     "named": true
   },
   {
+    "type": "escape",
+    "named": false
+  },
+  {
+    "type": "escapejs",
+    "named": false
+  },
+  {
+    "type": "escapeseq",
+    "named": false
+  },
+  {
+    "type": "extends",
+    "named": false
+  },
+  {
+    "type": "filesizeformat",
+    "named": false
+  },
+  {
+    "type": "filter",
+    "named": false
+  },
+  {
+    "type": "first",
+    "named": false
+  },
+  {
+    "type": "firstof",
+    "named": false
+  },
+  {
+    "type": "floatformat",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "force-escape",
+    "named": false
+  },
+  {
+    "type": "get-digit",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "ifchanged",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "iriencode",
+    "named": false
+  },
+  {
+    "type": "join",
+    "named": false
+  },
+  {
+    "type": "json-script",
+    "named": false
+  },
+  {
+    "type": "last",
+    "named": false
+  },
+  {
+    "type": "length",
+    "named": false
+  },
+  {
+    "type": "length-is",
+    "named": false
+  },
+  {
+    "type": "linebreaks",
+    "named": false
+  },
+  {
+    "type": "linebreaksbr",
+    "named": false
+  },
+  {
+    "type": "linenumbers",
+    "named": false
+  },
+  {
+    "type": "ljust",
+    "named": false
+  },
+  {
+    "type": "load",
+    "named": false
+  },
+  {
+    "type": "lorem",
+    "named": false
+  },
+  {
+    "type": "lower",
+    "named": false
+  },
+  {
+    "type": "make-list",
+    "named": false
+  },
+  {
+    "type": "now",
+    "named": false
+  },
+  {
+    "type": "phone2numeric",
+    "named": false
+  },
+  {
+    "type": "pluralize",
+    "named": false
+  },
+  {
+    "type": "pprint",
+    "named": false
+  },
+  {
+    "type": "random",
+    "named": false
+  },
+  {
     "type": "raw_text",
     "named": true
+  },
+  {
+    "type": "regroup",
+    "named": false
+  },
+  {
+    "type": "resetcycle",
+    "named": false
+  },
+  {
+    "type": "rjust",
+    "named": false
+  },
+  {
+    "type": "safe",
+    "named": false
+  },
+  {
+    "type": "safeseq",
+    "named": false
+  },
+  {
+    "type": "slice",
+    "named": false
+  },
+  {
+    "type": "slugify",
+    "named": false
+  },
+  {
+    "type": "spaceless",
+    "named": false
+  },
+  {
+    "type": "stringformat",
+    "named": false
+  },
+  {
+    "type": "striptags",
+    "named": false
   },
   {
     "type": "tag_name",
     "named": true
   },
   {
+    "type": "templatetag",
+    "named": false
+  },
+  {
     "type": "text",
     "named": true
+  },
+  {
+    "type": "time",
+    "named": false
+  },
+  {
+    "type": "timesince",
+    "named": false
+  },
+  {
+    "type": "timeuntil",
+    "named": false
+  },
+  {
+    "type": "title",
+    "named": false
+  },
+  {
+    "type": "truncatechars",
+    "named": false
+  },
+  {
+    "type": "truncatechars-html",
+    "named": false
+  },
+  {
+    "type": "truncatewords",
+    "named": false
+  },
+  {
+    "type": "truncatewords-html",
+    "named": false
+  },
+  {
+    "type": "unordered-list",
+    "named": false
+  },
+  {
+    "type": "upper",
+    "named": false
+  },
+  {
+    "type": "url",
+    "named": false
+  },
+  {
+    "type": "urlencode",
+    "named": false
+  },
+  {
+    "type": "urlize",
+    "named": false
+  },
+  {
+    "type": "urlizetrunc",
+    "named": false
+  },
+  {
+    "type": "verbatim",
+    "named": false
+  },
+  {
+    "type": "widthratio",
+    "named": false
+  },
+  {
+    "type": "with",
+    "named": false
+  },
+  {
+    "type": "wordcount",
+    "named": false
+  },
+  {
+    "type": "wordwrap",
+    "named": false
+  },
+  {
+    "type": "yesno",
+    "named": false
+  },
+  {
+    "type": "{%",
+    "named": false
+  },
+  {
+    "type": "{{",
+    "named": false
+  },
+  {
+    "type": "}}",
+    "named": false
   }
 ]

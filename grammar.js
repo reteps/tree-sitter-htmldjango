@@ -31,7 +31,15 @@ module.exports = grammar({
   ],
 
   rules: {
-    document: $ => repeat($._node),
+    document: $ => repeat(
+      choice(
+        $.directive,
+        $.variable,
+        $.html,
+      )
+    ),
+
+    html: $ => $._node,
 
     doctype: $ => seq(
       '<!',
@@ -138,6 +146,116 @@ module.exports = grammar({
       seq('"', optional(alias(/[^"]+/, $.attribute_value)), '"'),
     ),
 
-    text: _ => /[^<>&\s]([^<>&]*[^<>&\s])?/,
+    text: _ => /[^<>{}%&\s]([^<>{}%&]*[^<>{}%&\s])?/,
+
+    directive: $ => seq(
+      '{%',
+      repeat(
+        choice(
+          $.keyword,
+          $.identifier
+        )
+      ),
+      '%}'
+    ),
+    variable: $ => seq(
+      '{{',
+      $.identifier,
+      '}}'
+    ),
+    keyword: $ => choice(
+      $._keyword_list,
+      'end' + $._keyword_list
+    ),
+    _keyword_list: $ => choice(
+      'autoescape',
+      'block',
+      'comment',
+      'csrf-token',
+      'cycle',
+      'debug',
+      'extends',
+      'filter',
+      'firstof',
+      'for',
+      'empty',
+      'if',
+      'in',
+      'ifchanged',
+      'include',
+      'load',
+      'lorem',
+      'now',
+      'regroup',
+      'resetcycle',
+      'spaceless',
+      'templatetag',
+      'url',
+      'verbatim',
+      'widthratio',
+      'with'
+    ),
+    _filter_list: $ => choice(
+      'add',
+      'addslashes',
+      'capfirst',
+      'center',
+      'cut',
+      'date',
+      'default',
+      'default_if_none',
+      'dictsort',
+      'dictsortreversed',
+      'divisibleby',
+      'escape',
+      'escapejs',
+      'escapeseq',
+      'filesizeformat',
+      'first',
+      'floatformat',
+      'force-escape',
+      'get-digit',
+      'iriencode',
+      'join',
+      'json-script',
+      'last',
+      'length',
+      'length-is',
+      'linebreaks',
+      'linebreaksbr',
+      'linenumbers',
+      'ljust',
+      'lower',
+      'make-list',
+      'phone2numeric',
+      'pluralize',
+      'pprint',
+      'random',
+      'rjust',
+      'safe',
+      'safeseq',
+      'slice',
+      'slugify',
+      'stringformat',
+      'striptags',
+      'time',
+      'timesince',
+      'timeuntil',
+      'title',
+      'truncatechars',
+      'truncatechars-html',
+      'truncatewords',
+      'truncatewords-html',
+      'unordered-list',
+      'upper',
+      'urlencode',
+      'urlize',
+      'urlizetrunc',
+      'wordcount',
+      'wordwrap',
+      'yesno'
+    ),
+
+    identifier: $ => /[a-z]+/,
   },
 });
