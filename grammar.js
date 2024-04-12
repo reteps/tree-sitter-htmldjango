@@ -260,6 +260,6 @@ module.exports = grammar({
       'yesno'
     ),
 
-    identifier: $ => /[a-z]+/,
+    identifier: $ => /[^<>{}%&\s]([^<>{}%&]*[^<>{}%&\s])?/,
   },
 });

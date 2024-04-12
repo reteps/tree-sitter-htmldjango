@@ -889,7 +889,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-z]+"
+      "value": "[^<>{}%&\\s]([^<>{}%&]*[^<>{}%&\\s])?"
     }
   },
   "extras": [
