@@ -1,0 +1,867 @@
+=======================================
+Basic HTMLDjango Test
+=======================================
+
+<p> WHAT </p>
+{% for something in something %}
+<script> other thingy </script>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text)
+      (end_tag
+        (tag_name))))
+  (html
+    (text
+      (directive
+        (identifier))))
+  (html
+    (script_element
+      (start_tag
+        (tag_name))
+      (raw_text)
+      (end_tag
+        (tag_name)))))
+
+==================
+variable
+==================
+
+<html>
+  {{ variable }}
+  {{ variable.item1.item2 }}
+  {{ variable|filter }}
+  {{ variable|filter:argument }}
+  {{ variable|filter:argument.item1.item2 }}
+  {{ variable|filter:"quoted argument" }}
+  {{ variable|filter:"quoted argument, with non-word characters!" }}
+  {{ variable|filter|filter:argument|filter:"quoted argument" }}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+string
+==================
+
+<html>
+  {{ "string" }}
+  {{ 'string' }}
+  {{ "string"|filter }}
+  {{ 'string'|filter }}
+  {{ "string"|filter:argument }}
+  {{ 'string'|filter:argument }}
+  {{ "string"|filter:argument.item1.item2 }}
+  {{ 'string'|filter:argument.item1.item2 }}
+  {{ "string"|filter:"quoted argument" }}
+  {{ 'string'|filter:'quoted argument' }}
+  {{ "string"|filter:"quoted argument, with non-word characters!" }}
+  {{ 'string'|filter:'quoted argument, with non-word characters!' }}
+  {{ "string"|filter|filter:argument|filter:"quoted argument" }}
+  {{ 'string'|filter|filter:argument|filter:'quoted argument' }}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+csrf_token
+==================
+
+<html>
+  {% csrf_token %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+cycle
+==================
+
+<html>
+  {% cycle 'row1' rowvalue2 'row3' as row silent %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+debug
+==================
+
+<html>
+  {% debug %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (keyword)))
+      (end_tag
+        (tag_name)))))
+
+==================
+extends
+==================
+
+<html>
+  {% extends "template.html" %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+firstof
+==================
+
+<html>
+  {% firstof var1 var2 var3 "fallback value" %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+include
+==================
+
+<html>
+  {% include "template.html" with var="value" only %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+load
+==================
+
+<html>
+  {% load foo bar from somelibrary.otherlibrary %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+lorem
+==================
+
+<html>
+  {% lorem 2 w random %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+now
+==================
+
+<html>
+  {% now "jS F Y H:i" %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+regroup
+==================
+
+<html>
+  {% regroup list by attribute as list_attribute %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+resetcycle
+==================
+
+<html>
+  {% resetcycle name %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+templatetag
+==================
+
+<html>
+  {% templatetag openblock %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+url
+==================
+
+<html>
+  {% url 'some-url-name' arg arg2 as the_url %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+widthratio
+==================
+
+<html>
+  {% widthratio this_value max_value max_width %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+get_static_prefix
+==================
+
+<html>
+  {% get_static_prefix %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+get_media_prefix
+==================
+
+<html>
+  {% get_media_prefix %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+if
+==================
+
+<html>
+  {% if variable %}
+    content
+  {% elif variable2 %}
+    content
+  {% elif variable3 %}
+    content
+  {% else %}
+    content
+  {% endif %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+for
+==================
+
+<html>
+  {% for variable in list %}
+    {{ variable }}
+  {% empty %}
+    content
+  {% endfor %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text
+        (variable
+          (identifier)))
+      (text
+        (directive
+          (keyword)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+block
+==================
+
+<html>
+  {% block name %}
+    content
+  {% endblock %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+autoescape
+==================
+
+<html>
+  {% autoescape off %}
+    content
+  {% endautoescape %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+filter
+==================
+
+<html>
+  {% filter filter1|filter2 %}
+    content
+  {% endfilter %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+ifchanged
+==================
+
+<html>
+  {% for variable in list %}
+    {% ifchanged variable %}
+      content
+    {% endifchanged %}
+  {% endfor %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+blocktranslate
+==================
+
+<html>
+  {% blocktranslate %}
+    content
+  {% endblocktranslate %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+spaceless
+==================
+
+<html>
+  {% spaceless %}
+    content
+  {% endspaceless %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (keyword)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+verbatim
+==================
+
+<html>
+  {% verbatim block %}
+    content
+  {% endverbatim block %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+with
+==================
+
+<html>
+  {% with variable1=1 variable2=2 %}
+    content
+  {% endwith %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+keywords
+==================
+
+<html>
+  {% get_word as word %}
+  {% get_word as randomword %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
+
+==================
+custom
+==================
+
+<html>
+  {% unpaired %}
+  {% paired %}
+    content
+  {% endpaired %}
+  {% if_paired %}
+    content
+  {% endif_paired %}
+  {% for_paired %}
+    content
+  {% endfor_paired %}
+</html>
+
+---
+
+(document
+  (html
+    (element
+      (start_tag
+        (tag_name))
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (text
+        (directive
+          (identifier)))
+      (text)
+      (text
+        (directive
+          (identifier)))
+      (end_tag
+        (tag_name)))))
