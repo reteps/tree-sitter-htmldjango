@@ -1,0 +1,50 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "htmldjango",
+      "camelcase": "HtmlDjango",
+      "title": "HTML-Django",
+      "scope": "source.htmldjango",
+      "file-types": [
+        "html"
+      ],
+      "injection-regex": "^htmldjango$",
+      "class-name": "TreeSitterHtmldjango"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Parser for HTML-Django",
+    "authors": [
+      {
+        "name": "Peter Stenger"
+      },
+      {
+        "name": "Matthew Anderson"
+      },
+      {
+        "name": "Max Brunsfeld"
+      },
+      {
+        "name": "Amaan Qureshi"
+      },
+      {
+        "name": "William Vandervalk"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/reteps/tree-sitter-htmldjango"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

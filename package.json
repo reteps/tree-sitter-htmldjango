@@ -16,8 +16,11 @@
     "url": "https://github.com/tree-sitter/tree-sitter-html/issues"
   },
   "authors": [
+    "Matthew Anderson",
     "Max Brunsfeld <maxbrunsfeld@gmail.com>",
     "Ashi Krishnan <queerviolet@github.com>",
+    "Peter Stenger <pete@stenger.io>",
+    "William Vandervalk",
     "Amaan Qureshi <amaanq12@gmail.com>"
   ],
   "license": "MIT",
